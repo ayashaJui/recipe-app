@@ -1,0 +1,27 @@
+<!-- <p-listbox
+  [options]="recipes"
+  [listStyle]="{ 'max-height': '250px' }"
+  [style]="{ width: '20rem' }"
+  
+> -->
+  <!-- <ng-template  pTemplate="recipe"> -->
+    <a
+      
+      class="d-flex list-group-item align-items-center gap-5"
+      (click)="onSelected()"
+    >
+      <div class="">
+        <h4>{{ recipe.name }}</h4>
+        <p>{{ recipe.description }}</p>
+      </div>
+
+      <span class="">
+        <img
+          src="{{ recipe.imagePath }}"
+          
+          style="max-height: 50px"
+        />
+      </span>
+    </a>
+  <!-- </ng-template> -->
+<!-- </p-listbox> -->

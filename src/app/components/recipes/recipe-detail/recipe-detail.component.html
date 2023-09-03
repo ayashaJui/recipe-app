@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img
+      [src]="recipe.imagePath"
+      alt="recipe.name"
+      class="img-responsive mt-4 mb-2"
+      style="max-height: 300px"
+    />
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ recipe.name }}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 my-4">
+    <p-splitButton
+      label="Manage Recipe"
+      [model]="items"
+      appendTo="body"
+    ></p-splitButton>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">{{ recipe.description }}</div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group my-3">
+      <p-listbox
+        [options]="recipe.ingredients"
+        optionLabel="name"  
+      >
+        <ng-template let-ingredient pTemplate="ingredient">
+          {{ ingredient.name }} - {{ ingredient.amount }}
+        </ng-template></p-listbox
+      >
+    </ul>
+  </div>
+</div>

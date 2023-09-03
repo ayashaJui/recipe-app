@@ -1,0 +1,28 @@
+<div class="row my-3">
+  <div class="col-xs-12">
+    <p-button
+      label="New Recipe"
+      icon="pi pi-plus"
+      styleClass="p-button-success"
+    ></p-button>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-xs-12">
+    <p-listbox
+      [options]="recipes"
+      [listStyle]="{ 'max-height': '80vh' }"
+      [style]="{ width: '20rem' }"
+    >
+      <!-- <app-recipe-item
+        *ngFor="let recipeEl of recipes"
+        [recipe]="recipeEl"
+      (recipeSelected)="onRecipeSelected(recipeEl)"> -->
+      <ng-template let-recipe pTemplate="recipe">
+        <app-recipe-item [recipe]="recipe"></app-recipe-item>
+      </ng-template>
+      <!-- </app-recipe-item> -->
+    </p-listbox>
+  </div>
+</div>

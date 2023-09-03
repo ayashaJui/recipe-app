@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-sm-5 form-group d-flex flex-column gap-2">
+          <label htmlFor="name">Name</label>
+          <input pInputText id="name" formControlName="name" />
+        </div>
+        <div class="col-sm-2 form-group d-flex flex-column gap-2">
+          <label for="integeronly">Amount</label>
+          <p-inputNumber
+            inputId="integeronly"
+            formControlName="amount"
+            [style]="{ width: '100%' }"
+          >
+          </p-inputNumber>
+        </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-xs-12 d-flex gap-1">
+          <p-button
+            type="submit"
+            label="Add"
+            icon="pi pi-plus"
+            styleClass="p-button-success p-button-sm"
+            (onClick)="onAddItem()"
+          ></p-button>
+          <p-button
+            label="Delete"
+            icon="pi pi-times"
+            styleClass="p-button-danger p-button-sm"
+          ></p-button>
+          <p-button
+            label="Clear"
+            styleClass="p-button-info p-button-sm"
+          ></p-button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
