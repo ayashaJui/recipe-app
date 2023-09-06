@@ -11,22 +11,18 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
+      1,
       'Tasty Schnitzel',
       'A super tasty schnitzel - just awesome',
       'https://unsplash.com/photos/NPX7l_C3-f8/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjkzMTI0MTk5fA&force=true&w=1920',
-      [
-        new Ingredient('Meat', 2),
-        new Ingredient('French Fries', 20)
-      ]
+      [new Ingredient('Meat', 2), new Ingredient('French Fries', 20)]
     ),
     new Recipe(
+      2,
       'Big Fat Burger',
       'What else you need to say?',
       'https://unsplash.com/photos/j-MPEwH9LM4/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTh8fGJ1cmdlcnxlbnwwfHx8fDE2OTMxMDMyMDR8MA&force=true',
-      [
-        new Ingredient('Buns', 3),
-        new Ingredient('Meat', 2)
-      ]
+      [new Ingredient('Buns', 3), new Ingredient('Meat', 2)]
     ),
   ];
 
@@ -36,7 +32,13 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
-  addIngredientToShoppingList(ingredients: Ingredient[]){
+  getRecipe(id: number) {
+    const recipe = this.recipes.filter((r) => r.id === id);
+    // console.log(this.recipes[id]);
+    return recipe[0];
+  }
+
+  addIngredientToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
   }
 }

@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { MessageService } from 'primeng/api';
 import { RecipeService } from '../recipe.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -10,7 +11,8 @@ import { RecipeService } from '../recipe.service';
   providers: [MessageService],
 })
 export class RecipeDetailComponent implements OnInit {
-  @Input() recipe!: Recipe;
+  recipe!: Recipe;
+  id!: number;
 
   items: any[] = [
     {
@@ -34,15 +36,25 @@ export class RecipeDetailComponent implements OnInit {
     },
   ];
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(
+    private recipeService: RecipeService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.id = +params['id'];
+      this.recipe = this.recipeService.getRecipe(this.id);
+    });
+  }
 
   onAddShoppingList() {
     this.recipeService.addIngredientToShoppingList(this.recipe.ingredients);
   }
 
   editRecipe() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
     console.log('edit recipe');
   }
 
