@@ -20,8 +20,11 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DropdownDirective } from './components/shared/dropdown.directive';
 import { ShoppingListService } from './components/shopping-list/shopping-list.service';
+import { AppRoutingModule } from './app-routing.module';
+import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
 
-const appRoutes: Routes = []
+const appRoutes: Routes = [];
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ const appRoutes: Routes = []
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
+    RecipeStartComponent,
+    RecipeEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ const appRoutes: Routes = []
     SplitButtonModule,
     InputTextModule,
     InputNumberModule,
+    AppRoutingModule,
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent],

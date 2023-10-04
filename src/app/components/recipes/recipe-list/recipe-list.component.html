@@ -1,6 +1,7 @@
 <div class="row my-3">
   <div class="col-xs-12">
     <p-button
+      (click)="onNewRecipe()"
       label="New Recipe"
       icon="pi pi-plus"
       styleClass="p-button-success"
@@ -15,14 +16,9 @@
       [listStyle]="{ 'max-height': '80vh' }"
       [style]="{ width: '20rem' }"
     >
-      <!-- <app-recipe-item
-        *ngFor="let recipeEl of recipes"
-        [recipe]="recipeEl"
-      (recipeSelected)="onRecipeSelected(recipeEl)"> -->
       <ng-template let-recipe pTemplate="recipe">
         <app-recipe-item [recipe]="recipe"></app-recipe-item>
       </ng-template>
-      <!-- </app-recipe-item> -->
     </p-listbox>
   </div>
 </div>
