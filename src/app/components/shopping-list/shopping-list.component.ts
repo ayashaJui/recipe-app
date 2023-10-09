@@ -25,6 +25,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     );
   }
 
+  onEditItem(id: any){
+    this.slService.startedEditing.next(id)
+  }
+
   // onIngredientAdded(ingredient: Ingredient) {
   //   const newIngredients = [...this.ingredients, ingredient];
   //   this.ingredients = newIngredients;

@@ -4,9 +4,9 @@
     <hr />
     <p-listbox [options]="ingredients">
       <ng-template let-ingredient pTemplate="ingredient">
-        <a href="{{ ingredient.name }}" class="list-group-item border-0"
-          >{{ ingredient.name }} ({{ ingredient.amount }})</a
-        >
+        <div class="list-group-item border-0" (click)="onEditItem(ingredient.id)">
+          {{ ingredient.name }} ({{ ingredient.amount }})
+        </div>
       </ng-template>
     </p-listbox>
   </div>
