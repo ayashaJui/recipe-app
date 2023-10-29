@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { DatabaseStorage } from '../shared/database-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -10,4 +11,14 @@ export class HeaderComponent {
   // onSelect(feature: string){
   //   this.featureSelected.emit(feature);
   // }
+
+  constructor(private dataStorageService: DatabaseStorage) {}
+
+  saveData() {
+    this.dataStorageService.storeRecipes();
+  }
+
+  fetchData() {
+    this.dataStorageService.fetchRecipes().subscribe();
+  }
 }

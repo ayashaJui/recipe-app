@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -47,6 +48,7 @@ const appRoutes: Routes = [];
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
+    HttpClientModule,
     ButtonModule,
     ListboxModule,
     SplitButtonModule,

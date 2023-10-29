@@ -32,17 +32,17 @@
 
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
-          <a
+          <div
             class="nav-link dropdown-toggle"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             Manage
-          </a>
+        </div>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Save Data</a></li>
-            <li><a class="dropdown-item" href="#">Fetch Data</a></li>
+            <li class="dropdown-item" (click)="saveData()">Save Data</li>
+            <li class="dropdown-item" (click)="fetchData()">Fetch Data</li>
           </ul>
         </li>
       </ul>
