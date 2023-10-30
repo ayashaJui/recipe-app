@@ -28,6 +28,11 @@
             >Shopping List</a
           >
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="auth"
+            >Authenticate</a
+          >
+        </li>
       </ul>
 
       <ul class="navbar-nav ms-auto">
@@ -39,7 +44,7 @@
             aria-expanded="false"
           >
             Manage
-        </div>
+          </div>
           <ul class="dropdown-menu">
             <li class="dropdown-item" (click)="saveData()">Save Data</li>
             <li class="dropdown-item" (click)="fetchData()">Fetch Data</li>

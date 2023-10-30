@@ -25,6 +25,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './components/recipes/recipe.service';
+import { AuthComponent } from './components/auth/auth.component';
+import { LoadingComponent } from './components/shared/loader/loader.component';
 
 const appRoutes: Routes = [];
 
@@ -41,6 +43,8 @@ const appRoutes: Routes = [];
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
+    AuthComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
