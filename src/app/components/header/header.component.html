@@ -15,7 +15,7 @@
 
     <div class="collapse navbar-collapse d-flex">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isAuthenticated">
           <a class="nav-link" routerLinkActive="active" routerLink="recipes"
             >Recipes</a
           >
@@ -28,7 +28,7 @@
             >Shopping List</a
           >
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isAuthenticated">
           <a class="nav-link" routerLinkActive="active" routerLink="auth"
             >Authenticate</a
           >
@@ -36,18 +36,34 @@
       </ul>
 
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown">
+        <li class="nav-link" style="cursor: pointer" *ngIf="isAuthenticated" (click)="onLogout()">
+          Logout
+        </li>
+        <li class="nav-item dropdown" *ngIf="isAuthenticated">
           <div
             class="nav-link dropdown-toggle"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
+            style="cursor: pointer"
           >
             Manage
           </div>
           <ul class="dropdown-menu">
-            <li class="dropdown-item" (click)="saveData()">Save Data</li>
-            <li class="dropdown-item" (click)="fetchData()">Fetch Data</li>
+            <li
+              class="dropdown-item"
+              style="cursor: pointer"
+              (click)="saveData()"
+            >
+              Save Data
+            </li>
+            <li
+              class="dropdown-item"
+              style="cursor: pointer"
+              (click)="fetchData()"
+            >
+              Fetch Data
+            </li>
           </ul>
         </li>
       </ul>

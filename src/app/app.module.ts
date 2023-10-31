@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -27,6 +27,7 @@ import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edi
 import { RecipeService } from './components/recipes/recipe.service';
 import { AuthComponent } from './components/auth/auth.component';
 import { LoadingComponent } from './components/shared/loader/loader.component';
+import { AuthInterceptorService } from './components/auth/auth-interceptor.service';
 
 const appRoutes: Routes = [];
 
@@ -44,7 +45,7 @@ const appRoutes: Routes = [];
     RecipeStartComponent,
     RecipeEditComponent,
     AuthComponent,
-    LoadingComponent
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +61,15 @@ const appRoutes: Routes = [];
     InputNumberModule,
     AppRoutingModule,
   ],
-  providers: [ShoppingListService, RecipeService],
+  providers: [
+    ShoppingListService,
+    RecipeService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
