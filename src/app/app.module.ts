@@ -28,6 +28,8 @@ import { RecipeService } from './components/recipes/recipe.service';
 import { AuthComponent } from './components/auth/auth.component';
 import { LoadingComponent } from './components/shared/loader/loader.component';
 import { AuthInterceptorService } from './components/auth/auth-interceptor.service';
+import { AlertComponent } from './components/shared/alert/alert.component';
+import { PlaceholderDirective } from './components/shared/placeholder/placeholder.directive';
 
 const appRoutes: Routes = [];
 
@@ -46,6 +48,8 @@ const appRoutes: Routes = [];
     RecipeEditComponent,
     AuthComponent,
     LoadingComponent,
+    AlertComponent,
+    PlaceholderDirective
   ],
   imports: [
     BrowserModule,
@@ -60,6 +64,7 @@ const appRoutes: Routes = [];
     InputTextModule,
     InputNumberModule,
     AppRoutingModule,
+    
   ],
   providers: [
     ShoppingListService,
